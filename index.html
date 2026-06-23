@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="DAR: Dynamic Affective Reasoning, a viewer-centric benchmark for temporally grounded video emotion understanding." />
+  <title>DAR — Dynamic Affective Reasoning</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="DAR project home">DAR<span>·</span></a>
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" type="button">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="#abstract">Abstract</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#citation">Citation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-shell">
+      <div class="hero-kicker">ECCV 2026 · Project Page</div>
+      <h1>Benchmarking Dynamic Affective Reasoning:<br><span>A Viewer-Centric Video Emotion Dataset</span></h1>
+      <p class="hero-subtitle">Moving video emotion understanding beyond static labels—toward temporally grounded, causal reasoning about how a viewer’s affect evolves.</p>
+
+      <div class="authors" aria-label="Authors">
+        <a href="https://github.com/Zhang-Zhiyan" target="_blank" rel="noreferrer">Zhiyan Zhang</a><sup>1</sup>,
+        <span>Peipei Song</span><sup>1,*</sup>,
+        <span>Jinpeng Hu</span><sup>2</sup>,
+        <span>Jingyang Jia</span><sup>1</sup>,
+        <span>Xun Yang</span><sup>1</sup>,
+        <span>Xiaojun Chang</span><sup>1</sup>
+      </div>
+      <p class="affiliations"><sup>1</sup>University of Science and Technology of China &nbsp; <sup>2</sup>Hefei University of Technology<br><span>* Corresponding author</span></p>
+
+      <div class="hero-links" aria-label="Project resources">
+        <a class="button primary" href="#citation">Paper <span>↗</span></a>
+        <a class="button" href="https://github.com/Zhang-Zhiyan" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+        <span class="button disabled" title="Add the public repository URL after release">Code · coming soon</span>
+        <span class="button disabled" title="Add the dataset URL after release">Dataset · coming soon</span>
+      </div>
+    </section>
+
+    <section class="section-shell overview-band" aria-labelledby="overview-heading">
+      <div class="section-heading compact">
+        <p class="eyebrow">What is DAR?</p>
+        <h2 id="overview-heading">A benchmark for <em>when</em>, <em>what</em>, and <em>why</em> a viewer feels.</h2>
+      </div>
+      <div class="overview-frame">
+        <img src="assets/images/dar-overview.svg" alt="Timeline illustration showing affective segmentation, fine-grained emotion classification, and affective reasoning for a video." />
+      </div>
+      <p class="figure-caption">DAR treats a video as a stream of event-aligned affective states instead of a single static label. The benchmark jointly evaluates temporal boundaries, 27 viewer-centric emotion categories, and causal explanations grounded in visible evidence.</p>
+    </section>
+
+    <section class="section-shell text-section" id="abstract">
+      <div class="section-heading">
+        <p class="eyebrow">Abstract</p>
+        <h2>Dynamic affect is cumulative, event-driven, and temporally grounded.</h2>
+      </div>
+      <div class="prose wide">
+        <p>Video emotion analysis is commonly formulated as static classification, treating each clip as an independent labeled unit. This overlooks a key psychological fact: emotions evolve through cumulative reactions to consecutive causal events. We introduce <strong>DAR</strong> (Dynamic Affective Reasoning), a large-scale benchmark designed to model these dynamics. DAR contains 15,087 videos and 36,908 event-aligned affective segments annotated with 27 emotion categories, together with dense temporal grounding and causal reasoning chains.</p>
+        <p>On this benchmark, we define affective segmentation, fine-grained emotion classification, and affective reasoning. We further propose <strong>DAR-R1</strong>, a two-stage framework that combines supervised fine-tuning with Group Relative Policy Optimization, establishing strong performance in both temporal localization and viewer-centric reasoning.</p>
+      </div>
+    </section>
+
+    <section class="section-shell" id="dataset">
+      <div class="section-heading">
+        <p class="eyebrow">Dataset</p>
+        <h2>Large-scale, viewer-centric, and event-aligned.</h2>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><span class="stat-value">15,087</span><span class="stat-label">videos</span><p>Collected from diverse in-the-wild video scenarios.</p></article>
+        <article class="stat-card"><span class="stat-value">36,908</span><span class="stat-label">affective segments</span><p>Emotion changes are aligned with meaningful events.</p></article>
+        <article class="stat-card"><span class="stat-value">27</span><span class="stat-label">emotion categories</span><p>Fine-grained viewer responses beyond basic emotions.</p></article>
+        <article class="stat-card"><span class="stat-value">118.8</span><span class="stat-label">words / rationale</span><p>Rich causal explanations rather than short captions.</p></article>
+      </div>
+
+      <div class="split-layout dataset-detail">
+        <div class="panel soft">
+          <h3>Three benchmark tasks</h3>
+          <ol class="task-list">
+            <li><span>01</span><div><strong>Affective segmentation</strong><p>Locate the temporal boundaries where a viewer’s emotional state changes.</p></div></li>
+            <li><span>02</span><div><strong>Fine-grained emotion classification</strong><p>Recognize a 27-category viewer-centric affective state for each segment.</p></div></li>
+            <li><span>03</span><div><strong>Affective reasoning</strong><p>Explain why visible events induce that emotion, while maintaining temporal context.</p></div></li>
+          </ol>
+        </div>
+        <div class="panel dark">
+          <p class="panel-label">Data split</p>
+          <div class="split-number"><strong>13,646</strong><span>training videos</span></div>
+          <div class="split-number"><strong>1,441</strong><span>test videos</span></div>
+          <hr />
+          <p>Construction follows a coarse-to-fine pipeline: semantic boundary proposals are refined with visual cuts; differential captions reduce redundancy; and stream-of-affect reasoning is checked with dual-consistency verification.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell" id="method">
+      <div class="section-heading">
+        <p class="eyebrow">Method</p>
+        <h2>DAR-R1: adapt the format first, then refine the reasoning.</h2>
+      </div>
+      <div class="method-visual">
+        <img src="assets/images/dar-pipeline.svg" alt="DAR-R1 pipeline from video and task instruction to supervised fine-tuning then GRPO refinement and structured segment outputs." />
+      </div>
+      <div class="method-grid">
+        <article>
+          <span class="step-tag">Stage 1</span>
+          <h3>Cold-start supervised fine-tuning</h3>
+          <p>Adapt a general MLLM to produce valid structured outputs: segment timestamps, emotion labels, and causal rationales.</p>
+        </article>
+        <article>
+          <span class="step-tag">Stage 2</span>
+          <h3>GRPO-based reinforcement learning</h3>
+          <p>Optimize boundary precision, segment count, emotion correctness, structural validity, and grounded reasoning quality without a separate critic.</p>
+        </article>
+        <article>
+          <span class="step-tag">Output</span>
+          <h3>Temporally grounded affective reasoning</h3>
+          <p>For each emotional phase, DAR-R1 returns <code>start</code>, <code>end</code>, <code>emotion</code>, and <code>reason</code>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell results-section" id="results">
+      <div class="section-heading inverted">
+        <p class="eyebrow">Results</p>
+        <h2>Strong gains on dynamic affective reasoning.</h2>
+      </div>
+      <div class="result-highlight-grid">
+        <article><span>41.5</span><p>segment-count accuracy</p></article>
+        <article><span>52.3</span><p>temporal mIoU</p></article>
+        <article><span>28.6</span><p>emotion accuracy</p></article>
+        <article><span>4.2 / 5</span><p>human-rated reasoning quality</p></article>
+      </div>
+      <div class="results-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th>SC-Acc ↑</th><th>mIoU ↑</th><th>Emo-Acc ↑</th><th>GPT-Score ↑</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Qwen2.5-VL-3B</td><td>25.4</td><td>41.7</td><td>15.0</td><td>2.3</td></tr>
+            <tr><td>Qwen3-VL-4B</td><td>29.2</td><td>48.2</td><td>17.9</td><td>2.7</td></tr>
+            <tr><td>DAR-SFT</td><td>37.7</td><td>47.6</td><td>25.8</td><td>3.0</td></tr>
+            <tr class="best"><td>DAR-R1</td><td>41.5</td><td>52.3</td><td>28.6</td><td>3.3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="results-note">Metrics are reported on the DAR test set. Reasoning quality is evaluated across visual grounding, causal logic, viewer centricity, temporal consistency, and answer consistency.</p>
+    </section>
+
+    <section class="section-shell" id="examples">
+      <div class="section-heading">
+        <p class="eyebrow">Examples</p>
+        <h2>Video demos and qualitative comparisons.</h2>
+      </div>
+      <div class="demo-placeholder-grid">
+        <article class="demo-placeholder"><div class="play-mark">▶</div><h3>Demo 01</h3><p>Replace with a representative video and its DAR-R1 prediction.</p></article>
+        <article class="demo-placeholder"><div class="play-mark">▶</div><h3>Demo 02</h3><p>Replace with a temporal emotion transition example.</p></article>
+        <article class="demo-placeholder"><div class="play-mark">▶</div><h3>Demo 03</h3><p>Replace with a qualitative baseline comparison.</p></article>
+      </div>
+      <p class="asset-note">These three cards are intentional placeholders because the supplied TeX does not include video or figure assets. Put your MP4/WebM files in <code>assets/media/</code> and replace this block after the paper materials are public.</p>
+    </section>
+
+    <section class="section-shell citation-section" id="citation">
+      <div class="section-heading">
+        <p class="eyebrow">Citation</p>
+        <h2>BibTeX</h2>
+      </div>
+      <div class="citation-box">
+        <button class="copy-button" type="button" data-copy-target="bibtex">Copy</button>
+        <pre id="bibtex"><code>@inproceedings{zhang2026dar,
+  title     = {Benchmarking Dynamic Affective Reasoning: A Viewer-Centric Video Emotion Dataset},
+  author    = {Zhiyan Zhang and Peipei Song and Jinpeng Hu and Jingyang Jia and Xun Yang and Xiaojun Chang},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}</code></pre>
+      </div>
+      <p class="citation-note">Before public release, add the final PDF at <code>assets/paper/DAR.pdf</code>, replace the two “coming soon” links, and update the BibTeX only if the final venue metadata changes.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><strong>DAR</strong> · Dynamic Affective Reasoning</div>
+    <div>Website layout authored for this project. Visual style inspired by modern academic project pages.</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

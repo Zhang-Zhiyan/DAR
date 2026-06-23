@@ -1,0 +1,1 @@
+Place the final public paper PDF here as DAR.pdf, then change the Paper button in index.html to assets/paper/DAR.pdf.
