@@ -130,7 +130,7 @@ python test.py \
 
 ## 🤝 Acknowledgements
 
-We thank the authors of [emodiversity](https://github.com/hendrycks/emodiversity), Qwen, and ms-swift for their publicly available resources and tools.
+We thank the authors of [emodiversity](https://github.com/hendrycks/emodiversity), [Qwen](https://github.com/QwenLM/Qwen3-VL), [ms-swift](https://github.com/modelscope/ms-swift) and [PySceneDetect](https://github.com/Breakthrough/PySceneDetect) for their publicly available resources and tools.
 
 ## 📝 License
 
