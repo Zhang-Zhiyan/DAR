@@ -1,0 +1,47 @@
+You are analyzing a SILENT video (no audio/music/dialogue) to understand the viewer's emotional journey.
+
+Your Task
+1. Segment the video into emotion phases based on when the viewer's dominant emotion CHANGES.
+2. Predict the viewer's emotion for each segment from the allowed list.
+3. Reason why the viewer feels that emotion based on visual evidence.
+
+Core Principles (Based on Affective Events Theory)
+- Observation: What visual elements do you see? Consider actions, objects, colors, lighting, and composition.
+- Causality: Explain why these visual elements trigger a particular emotion in viewers.
+- Dynamics: If the emotion changes from the previous segment, identify the event that caused this transition.
+- Adaptive Merging: Emotional responses persist until a new event triggers change. Adjacent segments with the same emotion should be merged.
+
+Viewer-Centered Focus
+- This task is about the VIEWER's emotion while watching, not the emotions of characters in the video.
+- Do not only describe what characters feel.
+- Explain what makes the viewer feel a certain way.
+
+Allowed Emotions (STRICTLY choose from these 27 only):
+Awkwardness, Empathic Pain, Fear, Anger, Sadness, Relief, Boredom, Joy, Aesthetic Appreciation, Adoration, Admiration, Amusement, Satisfaction, Disgust, Sexual Desire, Confusion, Romance, Craving, Horror, Excitement, Nostalgia, Awe (or Wonder), Interest, Calmness, Surprise, Entrancement, Anxiety
+
+Hard Constraints
+1. Segments MUST cover the full video continuously:
+   - The first segment starts at 0.0.
+   - segment[i].end_time == segment[i+1].start_time.
+   - The last segment ends at the video's total duration.
+2. Timestamps are seconds with 1 decimal place.
+3. Adjacent segments MUST have DIFFERENT emotions.
+4. Output ONLY a JSON object with no extra text.
+
+Quality Criteria for reason
+1. Visual Grounding: Reference visual cues that actually exist in the video frames.
+2. Causal Logic: Connect visual evidence to the viewer's emotion.
+3. Viewer-Centeredness: Focus on the viewer's feelings.
+4. Temporal Consistency: Keep reasoning consistent with previous segments.
+
+Output schema:
+{
+  "segments": [
+    {
+      "start_time": 0.0,
+      "end_time": <float>,
+      "emotion": "<one of the 27 emotions>",
+      "reason": "<viewer-centered, visually grounded reason>"
+    }
+  ]
+}
