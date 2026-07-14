@@ -3,11 +3,21 @@ Benchmarking Dynamic Affective Reasoning: A Viewer-Centric Video Emotion Dataset
 </h1>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/ECCV-2026-9E95B7"> &nbsp;
-  <a href="https://github.com/Zhang-Zhiyan/DAR"><img src="https://img.shields.io/badge/GitHub-DAR-94c320?logo=github"></a> &nbsp;
-  <a href="https://huggingface.co/datasets/aiaiaizzy/DAR-R1"><img src="https://img.shields.io/badge/Dataset-HuggingFace-f9d371?logo=huggingface"></a> &nbsp;
-  <a href="https://huggingface.co/aiaiaizzy/DAR-R1"><img src="https://img.shields.io/badge/Model-HuggingFace-blue?logo=huggingface"></a> &nbsp;
-  <a href="https://www.modelscope.cn/models/zzy220/DAR-R1"><img src="https://img.shields.io/badge/ModelScope-DAR--R1-624aff"></a>
+  <a href="https://arxiv.org/pdf/2607.10238">
+    <img src="https://img.shields.io/badge/arXiv-2607.10238-B31B1B?logo=arxiv">
+  </a> &nbsp;
+  <a href="https://github.com/Zhang-Zhiyan/DAR">
+    <img src="https://img.shields.io/badge/ECCV-2026-9E95B7">
+  </a> &nbsp;
+  <a href="https://github.com/Zhang-Zhiyan/DAR">
+    <img src="https://img.shields.io/badge/GitHub-DAR-94c320?logo=github">
+  </a> &nbsp;
+  <a href="https://huggingface.co/datasets/aiaiaizzy/DAR-R1">
+    <img src="https://img.shields.io/badge/Dataset-HuggingFace-f9d371?logo=huggingface">
+  </a> &nbsp;
+  <a href="https://huggingface.co/aiaiaizzy/DAR-R1">
+    <img src="https://img.shields.io/badge/Model-HuggingFace-blue?logo=huggingface">
+  </a>
   <br>
 </div>
 
