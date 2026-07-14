@@ -44,7 +44,7 @@ The construction pipeline follows three stages.
 
 1. Event-aligned affective segmentation: Gemini-2.5-Pro proposes semantic event boundaries; PySceneDetect detects visual cuts and snaps nearby boundaries within a 0.5s window; InternVL3.5 verifies event integrity.
 2. Incremental differential captioning: Qwen3-VL describes each segment while focusing on changes relative to the previous segment. Description generation does not use emotion labels.
-3. Stream-of-affect reasoning: Qwen3-VL uses segment descriptions and DAR Top-3 candidate emotions to generate ranked emotion-reason pairs. Qwen3-Omni and InternVL3.5 then judge visual grounding, causal logic, viewer centricity, temporal consistency, and answer consistency.
+3. Stream-of-affect reasoning: Qwen3-VL uses segment descriptions and Top-3 candidate emotions to generate ranked emotion-reason pairs. Qwen3-Omni and InternVL3.5 then judge visual grounding, causal logic, viewer centricity, temporal consistency, and answer consistency.
 
 <div align="center">
   <a href="image/dataset_pipeline.png"><img src="image/dataset_pipeline.png" alt="DAR Data Construction Pipeline" width="95%"></a>
