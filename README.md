@@ -146,13 +146,16 @@ We thank the authors of [emodiversity](https://github.com/hendrycks/emodiversity
 
 This project is released under the [Apache License 2.0](LICENSE). The original videos remain governed by the license and usage terms of [emodiversity](https://github.com/hendrycks/emodiversity) and their original sources. Upstream Qwen and ms-swift components follow their respective licenses.
 
-<!-- ## Citation -->
+## Citation
 
-<!-- ```bibtex
-@inproceedings{dar2026,
-  title     = {Benchmarking Dynamic Affective Reasoning: A Viewer-Centric Video Emotion Dataset},
-  author    = {Anonymous},
-  booktitle = {European Conference on Computer Vision},
-  year      = {2026}
+```bibtex
+@misc{zhang2026benchmarkingdynamicaffectivereasoning,
+      title={Benchmarking Dynamic Affective Reasoning: A Viewer-Centric Video Emotion Dataset}, 
+      author={Zhiyan Zhang and Peipei Song and Jinpeng Hu and Jingyang Jia and Xun Yang and Xiaojun Chang},
+      year={2026},
+      eprint={2607.10238},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2607.10238}, 
 }
-``` -->
+```
